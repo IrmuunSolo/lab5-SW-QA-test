@@ -36,13 +36,13 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/students/S01",
+              "raw": "{{baseUrl}}/students/B231234567",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "students",
-                "S01"
+                "B231234567"
               ]
             }
           },
@@ -74,13 +74,13 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/courses/C01",
+              "raw": "{{baseUrl}}/courses/CS313",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "courses",
-                "C01"
+                "CS313"
               ]
             }
           },
@@ -104,7 +104,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"studentID\": \"S01\",\n  \"courseID\": \"C01\"\n}",
+              "raw": "{\n  \"studentID\": \"B231234567\",\n  \"courseID\": \"CS313\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
