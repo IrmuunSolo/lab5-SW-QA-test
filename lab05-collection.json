@@ -1,0 +1,135 @@
+{
+  "info": {
+    "_postman_id": "ace528a8-13b5-4522-9f5e-6ac0868b1d7b",
+    "name": "Lab05 Registration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44810164",
+    "_collection_link": "https://go.postman.co/collection/44810164-ace528a8-13b5-4522-9f5e-6ac0868b1d7b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "T01 — Идэвхтэй оюутан урьдач нөхцөлөө хангасан",
+      "item": [
+        {
+          "name": "Оюутан үүсгэх",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Setup статус 200 байна\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Setup result нь OK байна\", function () {\n    pm.expect(pm.response.json().result).to.eql(\"OK\");\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"active\",\n  \"coursesTaken\": [\"CS201\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/students/S01",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "students",
+                "S01"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Хичээл үүсгэх",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Setup статус 200 байна\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Setup result нь OK байна\", function () {\n    pm.expect(pm.response.json().result).to.eql(\"OK\");\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prerequisites\": [\"CS201\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/courses/C01",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "courses",
+                "C01"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Бүртгүүлэх",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Бүртгэлийн статус 201 байна\", function () {\n    pm.response.to.have.status(201);\n});\n\npm.test(\"Бүртгэлийн result нь OK байна\", function () {\n    pm.expect(pm.response.json().result).to.eql(\"OK\");\n});\n\npm.test(\"registrationID нь тоо байна\", function () {\n    pm.expect(pm.response.json().registrationID).to.be.a(\"number\");\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentID\": \"S01\",\n  \"courseID\": \"C01\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/registrations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "registrations"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
