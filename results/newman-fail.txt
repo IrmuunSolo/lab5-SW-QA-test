@@ -1,0 +1,228 @@
+newman
+
+Lab05 Registration API — FAIL
+
+❏ T01 — Идэвхтэй оюутан урьдач нөхцөлөө хангасан
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 14ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [201 Created, 203B, 1ms]
+  1. Зориуд буруу oracle: статус 200 байна
+  ✓  Бүртгэлийн result нь OK байна
+  ✓  registrationID нь тоо байна
+
+❏ T02 — Оюутан байхгүй
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S02_fixture [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C02 [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [200 OK, 192B, 1ms]
+  ✓  Оюутан байхгүй хүсэлтийн статус 200 байна
+  ✓  ERROR_NO_STUDENT буцаана
+
+❏ T03 — Оюутан идэвхгүй
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S03 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C03 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [200 OK, 198B, 2ms]
+  ✓  Идэвхгүй оюутны хүсэлтийн статус 200 байна
+  ✓  ERROR_INACTIVE_STUDENT буцаана
+
+❏ T04 — Хичээл байхгүй
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S04 [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C04_fixture [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [200 OK, 191B, 1ms]
+  ✓  Хичээл байхгүй хүсэлтийн статус 200 байна
+  ✓  ERROR_NO_COURSE буцаана
+
+❏ T05 — Урьдач хичээлийг огт үзээгүй
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S05 [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C05 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [200 OK, 215B, 2ms]
+  ✓  Урьдач хичээлийг огт үзээгүй хүсэлтийн статус 200 байна
+  ✓  ERROR_PREREQUISITES буцаана
+  ✓  Дутуу урьдач нь CS201 байна
+
+❏ T06 — Оюутан болон хичээл хоёулаа байхгүй
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S06_fixture [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C06_fixture [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [200 OK, 192B, 1ms]
+  ✓  Оюутан болон хичээл хоёулаа байхгүй хүсэлтийн статус 200 байна
+  ✓  ERROR_NO_STUDENT буцаана
+
+❏ T07 — Оюутан идэвхгүй, хичээл байхгүй
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S07 [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C07_fixture [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [200 OK, 198B, 1ms]
+  ✓  Оюутан идэвхгүй, хичээл байхгүй хүсэлтийн статус 200 байна
+  ✓  ERROR_INACTIVE_STUDENT буцаана
+
+❏ T08 — Урьдач нөхцөлгүй хичээл, оюутан өөр хичээл үзсэн
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S08 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C08 [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [201 Created, 203B, 3ms]
+  ✓  Урьдач нөхцөлгүй хичээл, оюутан өөр хичээл үзсэн статус 201 байна
+  ✓  Бүртгэлийн result нь OK байна
+  ✓  registrationID нь тоо байна
+
+❏ T09 — Урьдач нөхцөлгүй хичээл, coursesTaken: []
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S09 [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C09 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [201 Created, 203B, 1ms]
+  ✓  Урьдач нөхцөлгүй хичээл, coursesTaken: [] статус 201 байна
+  ✓  Бүртгэлийн result нь OK байна
+  ✓  registrationID нь тоо байна
+
+❏ T10 — Хоёр урьдач хичээлээс зөвхөн нэгийг үзсэн
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S10 [200 OK, 178B, 0µs]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C10 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [200 OK, 215B, 1ms]
+  ✓  Хоёр урьдач хичээлээс зөвхөн нэгийг үзсэн хүсэлтийн статус 200 байна
+  ✓  ERROR_PREREQUISITES буцаана
+  ✓  Дутуу урьдач нь зөвхөн CS202 байна
+
+❏ T11 — courseID талбар дутуу
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S11 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C11 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [400 Bad Request, 202B, 2ms]
+  ✓  courseID талбар дутуу хүсэлтийн статус 400 байна
+  ✓  ERROR_BAD_REQUEST буцаана
+
+❏ T12 — JSON-ийн төгсгөлийн хаалт дутуу
+↳ Оюутан үүсгэх
+  PUT http://localhost:3000/students/S12 [200 OK, 178B, 1ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Хичээл үүсгэх
+  PUT http://localhost:3000/courses/C12 [200 OK, 178B, 2ms]
+  ✓  Setup статус 200 байна
+  ✓  Setup result нь OK байна
+
+↳ Бүртгүүлэх
+  POST http://localhost:3000/registrations [400 Bad Request, 199B, 3ms]
+  ✓  JSON-ийн төгсгөлийн хаалт дутуу хүсэлтийн статус 400 байна
+  ✓  ERROR_BAD_JSON буцаана
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              36 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              36 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               0 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              77 │               1 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 499ms                                   │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 782B (approx)                          │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 1ms [min: 1ms, max: 14ms, s.d.: 2ms] │
+└─────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                               [39m
+[90m    [39m[90m                [39m[90m                                                                      [39m
+ 1.  AssertionError  Зориуд буруу oracle: статус 200 байна                                
+                     expected response to have status code 200 but got 201                
+                     at assertion:0 in test-script                                        
+                     inside "T01 — Идэвхтэй оюутан урьдач нөхцөлөө хангасан / Бүртгүүлэх" 
+exit=1
